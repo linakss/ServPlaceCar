@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,26 +18,43 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "user")
+@Table(name = "users")
 @Schema(description = "Инфа о госте парковки")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser; //индивид. номер гостя парковки
+    @NotBlank()
+    @Pattern(regexp = "[0-9]{2}-[0-9]{2}-[0-9]{4}\\s[0-9]{2}:[0-9]{2}")
+    @Schema(description = "Время въезда ", example = "dd-MM-yyyy HH:mm")
+    private LocalDateTime timeEntry; //Время въезда
+    @NotBlank()
+    @Pattern(regexp = "[0-9]{2}-[0-9]{2}-[0-9]{4}\\s[0-9]{2}:[0-9]{2}")
+    @Schema(description = "Время выезда ", example = "dd-MM-yyyy HH:mm")
+    private LocalDateTime timeDeparture; //Время выезда
 
-
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Card> cardList;
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Car> carList;
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<PM> pmList;
+    @Override
+    public String toString() {
+        return "";
+    }
+}
 
-    @NotBlank()
-    @Pattern(regexp = "[А-Я][а-я]{1,55}")
-    @Schema(description = "Время въезда ", example = "")
-    private LocalDateTime timeEntry; //Время въезда
-    @NotBlank()
-    @Pattern(regexp = "[А-Я][а-я]{1,55}")
-    @Schema(description = "Время выезда ", example = "")
-    private LocalDateTime timeDeparture; //Время выезда
+
+
+
     /*
     import java.time.LocalDateTime;
 import java.time.Duration;
@@ -48,20 +66,3 @@ LocalDateTime endTime = LocalDateTime.of(timeDeparture);
 Duration продолжительность = Duration.between(startTime, endTime);
 Period период = Period.between(startTime.toLocalDate(), endTime.toLocalDate());
      */
-    @Override
-    public String toString() {
-        return "ф";
-    }
-}
-/*
-
-    @NotNull
-    @ManyToOne
-    @JoinColumn(name = "publisher_id")
-    private PublisherEntity publisher;
-    @NotNull
-    @ManyToOne
-    @JoinColumn(name = "genre_id")
-    private GenreEntity genre;
-    private String year;
- */

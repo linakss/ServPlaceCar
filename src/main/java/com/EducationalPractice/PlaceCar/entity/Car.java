@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,7 +19,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "car")
+@Table(name = "cars")
 @Schema(description = "Инфа о машине")
 public class Car {
     @Id
@@ -39,5 +40,8 @@ public class Car {
     @Pattern(regexp = "[А-Я][0-9]{3}[А-Я]{2}")
     @Schema(description = "Гос.номер машины ", example = "Т161ТС")
     private String gosNumberCar; //государственнный номер машины
-    //надо еще накинуть паттерн на гос номер машины чтобы сначала была буква 3 цифры и 2 буквы + регион 3 цифры
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

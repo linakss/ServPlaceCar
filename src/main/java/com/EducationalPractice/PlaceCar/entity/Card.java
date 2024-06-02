@@ -16,7 +16,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "card")
+@Table(name = "cards")
 @Schema(description = "Инфа о банк.карте")
 public class Card {
     @Id
@@ -42,6 +42,11 @@ public class Card {
     @Pattern(regexp = "[0-9]{3}")
     @Schema(description = "CVV-код ", example = "123")
     private int cvvCard; // cvv-код на оборотной стороне карты
-
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    @JsonIgnore
+    @OneToMany(mappedBy = "card", cascade = CascadeType.ALL)
+    private List<PM> pmList;
 
 }

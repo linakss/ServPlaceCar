@@ -16,7 +16,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "employee")
+@Table(name = "employees")
 @Schema(description = "Инфа о сотруднике")
 public class Employee {
     @Id
@@ -42,6 +42,17 @@ public class Employee {
     @Pattern(regexp = "8\\s([0-9]{3})\\s[0-9]{3}-[0-9]{2}-[0-9]{2}")
     @Schema(description = "Номер телефона сотрудника ", example = "8 (928) 456-21-30")
     private int numberPhone; // номер телефона сотрудника
+
+    @NotBlank()
+    @Schema(description = "Логин сотрудника ", example = "admink1o")
+    private String login; //лоогин сотрудника системы
+    @NotBlank()
+    @Schema(description = "Пароль сотрудника ", example = "admink1o")
+    private String password; //пароль сотрудника системы
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<User> userList;
 
 
 }

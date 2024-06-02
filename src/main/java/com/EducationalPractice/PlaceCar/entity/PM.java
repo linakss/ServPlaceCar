@@ -16,7 +16,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "pm")
+@Table(name = "pms")
 @Schema(description = "Инфа о парковочном месте")
 public class PM {
     @Id
@@ -28,11 +28,17 @@ public class PM {
     private String ryadPM; //ряд парковочного места от A до Z
     @NotBlank()
     @Pattern(regexp = "^\\d+$")
-    @Schema(description = "", example = "10")
+    @Schema(description = "Номер парковочного места", example = "10")
     private int numberPM; // номер парковочного места от 1 до 10
     @NotBlank()
     @Pattern(regexp = "[А-Я][а-я]{1,20}")
-    @Schema(description = "", example = "")
+    @Schema(description = "Статус парковочного места", example = "Забронировано")
     private String statusPM; // статус парковочного места (свободно, забронировано, занято)
 
+    @ManyToOne
+    @JoinColumn(name = "card_id")
+    private Card card;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
