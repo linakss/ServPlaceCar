@@ -22,11 +22,17 @@ public class PM {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPM; //индивид. номер парковочного места в базе
-
+    @NotBlank()
+    @Pattern(regexp = "[A-Z]")
+    @Schema(description = "Ряд ПМ", example = "B")
     private String ryadPM; //ряд парковочного места от A до Z
-
+    @NotBlank()
+    @Pattern(regexp = "^\\d+$")
+    @Schema(description = "", example = "10")
     private int numberPM; // номер парковочного места от 1 до 10
-
+    @NotBlank()
+    @Pattern(regexp = "[А-Я][а-я]{1,20}")
+    @Schema(description = "", example = "")
     private String statusPM; // статус парковочного места (свободно, забронировано, занято)
 
 }

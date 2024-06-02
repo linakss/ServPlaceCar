@@ -29,7 +29,7 @@ public class Car {
     @Schema(description = "Цвет машины ", example = "Красный")
     private String colorCar; //цвет машины
     @NotBlank()
-    @Pattern(regexp = "[А-Я][а-я]{1,25}")
+    @Pattern(regexp = "[A-Z][a-z]{1,25}")
     @Schema(description = "Модель машины ", example = "Audi")
     private String modelCar; //модель машины
     @NotBlank()

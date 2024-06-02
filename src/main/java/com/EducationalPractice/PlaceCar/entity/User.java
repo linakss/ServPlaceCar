@@ -31,26 +31,23 @@ public class User {
 
     @NotBlank()
     @Pattern(regexp = "[А-Я][а-я]{1,55}")
-
+    @Schema(description = "Время въезда ", example = "")
+    private LocalDateTime timeEntry; //Время въезда
+    @NotBlank()
+    @Pattern(regexp = "[А-Я][а-я]{1,55}")
+    @Schema(description = "Время выезда ", example = "")
+    private LocalDateTime timeDeparture; //Время выезда
     /*
     import java.time.LocalDateTime;
 import java.time.Duration;
 import java.time.Period;
 
-LocalDateTime начало = LocalDateTime.of(2023, 3, 15, 10, 0, 0);
-LocalDateTime конец = LocalDateTime.now();
+LocalDateTime startTime = LocalDateTime.of(timeEntry);
+LocalDateTime endTime = LocalDateTime.of(timeDeparture);
 
-Duration продолжительность = Duration.between(начало, конец);
-Period период = Period.between(начало.toLocalDate(), конец.toLocalDate());
+Duration продолжительность = Duration.between(startTime, endTime);
+Period период = Period.between(startTime.toLocalDate(), endTime.toLocalDate());
      */
-
-
-    private LocalDateTime monthEntry; //месяц въезда
-
-
-
-    private LocalDateTime yearDeparture; //год выезда
-
     @Override
     public String toString() {
         return "ф";
