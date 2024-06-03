@@ -32,7 +32,7 @@ public class CarContr {
             summary = "Добавить машину",
             description = "Позволяет добавлять машину в базу"
     )
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<BaseResp> save(@RequestBody Car car) {
         try {
             return ResponseEntity.ok(
@@ -46,7 +46,7 @@ public class CarContr {
             summary = "Изменить машину",
             description = "Позволяет редактировать и изменять машину"
     )
-    @PutMapping
+    @PutMapping("/update")
     public ResponseEntity<BaseResp> update(@RequestBody Car car) {
         try {
             service.update(car);
@@ -63,7 +63,7 @@ public class CarContr {
             summary = "Удалить  машину",
             description = "Позволяет удалить машину из базы"
     )
-    @DeleteMapping("/{id}")
+    @DeleteMapping("del/{id}")
     public ResponseEntity<BaseResp> delete(@PathVariable Long id) {
         try {
             service.delete(id);

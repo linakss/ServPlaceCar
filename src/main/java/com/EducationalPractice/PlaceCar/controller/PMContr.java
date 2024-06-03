@@ -32,7 +32,7 @@ public class PMContr {
             summary = "Добавить парковочное место",
             description = "Позволяет добавлять парковочное место в базу"
     )
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<BaseResp> save(@RequestBody PM pm) {
         try {
             return ResponseEntity.ok(
@@ -46,7 +46,7 @@ public class PMContr {
             summary = "Изменить парковочное место",
             description = "Позволяет редактировать и изменять парковочное место"
     )
-    @PutMapping
+    @PutMapping("/update")
     public ResponseEntity<BaseResp> update(@RequestBody PM pm) {
         try {
             service.update(pm);
@@ -63,7 +63,7 @@ public class PMContr {
             summary = "Удалить парковочное место",
             description = "Позволяет удалить парковочное место из базы"
     )
-    @DeleteMapping("/{id}")
+    @DeleteMapping("del/{id}")
     public ResponseEntity<BaseResp> delete(@PathVariable Long id) {
         try {
             service.delete(id);

@@ -21,7 +21,7 @@ public class CardContr {
             summary = "Добавить карту",
             description = "Позволяет добавлять карту в базу"
     )
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<BaseResp> save(@RequestBody Card card) {
         try {
             return ResponseEntity.ok(
@@ -35,7 +35,7 @@ public class CardContr {
             summary = "Изменить карту",
             description = "Позволяет редактировать и изменять карту"
     )
-    @PutMapping
+    @PutMapping("/update")
     public ResponseEntity<BaseResp> update(@RequestBody Card card) {
         try {
             service.update(card);
@@ -52,7 +52,7 @@ public class CardContr {
             summary = "Удалить карту",
             description = "Позволяет удалить карту из базы"
     )
-    @DeleteMapping("/{id}")
+    @DeleteMapping("del/{id}")
     public ResponseEntity<BaseResp> delete(@PathVariable Long id) {
         try {
             service.delete(id);

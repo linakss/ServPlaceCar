@@ -32,7 +32,7 @@ public class EmployeeContr {
             summary = "Добавить сотрудника",
             description = "Позволяет добавлять сотрудника в базу"
     )
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<BaseResp> save(@RequestBody Employee employee) {
         try {
             return ResponseEntity.ok(
@@ -46,7 +46,7 @@ public class EmployeeContr {
             summary = "Изменить сотрудника",
             description = "Позволяет редактировать и изменять сотрудника"
     )
-    @PutMapping
+    @PutMapping("/update")
     public ResponseEntity<BaseResp> update(@RequestBody Employee employee) {
         try {
             service.update(employee);
@@ -63,7 +63,7 @@ public class EmployeeContr {
             summary = "Удалить сотрудника",
             description = "Позволяет удалить сотрудника из базы"
     )
-    @DeleteMapping("/{id}")
+    @DeleteMapping("del/{id}")
     public ResponseEntity<BaseResp> delete(@PathVariable Long id) {
         try {
             service.delete(id);
