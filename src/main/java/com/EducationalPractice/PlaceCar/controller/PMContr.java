@@ -19,7 +19,7 @@ public class PMContr {
     private final PMServ service;
     @Operation(
             summary = "Вывод всех парковочных мест",
-            description = "Позволяет вывести всех парковочных мест, что есть в базе"
+            description = "Позволяет вывести все парковочных места, что есть в базе"
     )
     @GetMapping("/all")
     public ResponseEntity<ListResp<PM>> getAll() {
@@ -36,7 +36,7 @@ public class PMContr {
     public ResponseEntity<BaseResp> save(@RequestBody PM pm) {
         try {
             return ResponseEntity.ok(
-                    new DataResp<PM>(true, "Машина сохранена", service.save(pm)));
+                    new DataResp<PM>(true, "Парковочное место сохранено", service.save(pm)));
         } catch (RuntimeException e) {
             return ResponseEntity.ok(
                     new BaseResp(false, e.getMessage()));
@@ -51,7 +51,7 @@ public class PMContr {
         try {
             service.update(pm);
             return ResponseEntity.ok(
-                    new BaseResp(true, "Машина сохранена и обновлена"));
+                    new BaseResp(true, "Парковочное место сохранено и обновлено"));
         }catch (RuntimeException e) {
             return ResponseEntity.ok(
                     new BaseResp(false, e.getMessage()));
@@ -68,7 +68,7 @@ public class PMContr {
         try {
             service.delete(id);
             return ResponseEntity.ok(
-                    new BaseResp(true, "Парковочное место удалена"));
+                    new BaseResp(true, "Парковочное место удалено"));
         } catch (RuntimeException e) {
             return ResponseEntity.ok(
                     new BaseResp(false, e.getMessage()));

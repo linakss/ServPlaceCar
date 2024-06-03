@@ -16,7 +16,7 @@ import java.util.Optional;
 public class PMServ {
     private final PMRepo repo;
     public List<PM> getTitle(String title){ //Поменять
-        return null; //repo.findByTitle(title);
+        return repo.findByRyadPMAndNumberPM(title);
     }
 
     public List<PM> findAll(){

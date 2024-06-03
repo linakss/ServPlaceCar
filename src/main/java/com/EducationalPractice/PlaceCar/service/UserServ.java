@@ -15,10 +15,6 @@ import java.util.Optional;
 @Validated
 public class UserServ {
     private final UserRepo repo;
-    public List<User> getTitle(String title){ //Поменять
-        return null; //repo.findByTitle(title);
-    }
-
     public List<User> findAll(){
         return repo.findAll();
     }

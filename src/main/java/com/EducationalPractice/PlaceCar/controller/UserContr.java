@@ -10,7 +10,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-@Tag(name="пользователейы", description="Содержит методы для работы с пользователями ")
+@Tag(name="Пользователи", description="Содержит методы для работы с пользователями ")
 @RestController
 @RequestMapping("educationalpractice/placecar/user")
 @AllArgsConstructor

@@ -3,7 +3,6 @@ package com.EducationalPractice.PlaceCar.controller;
 import com.EducationalPractice.PlaceCar.entity.Card;
 import com.EducationalPractice.PlaceCar.response.BaseResp;
 import com.EducationalPractice.PlaceCar.response.DataResp;
-import com.EducationalPractice.PlaceCar.response.ListResp;
 import com.EducationalPractice.PlaceCar.service.CardServ;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -17,16 +16,6 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class CardContr {
     private final CardServ service;
-    @Operation(
-            summary = "Вывод всех карт",
-            description = "Позволяет вывести всех карт, что есть в базе"
-    )
-    @GetMapping("/all")
-    public ResponseEntity<ListResp<Card>> getAll() {
-        return ResponseEntity.ok(
-                new ListResp<Card>(true, "Список карт:", service.findAll()));
-    }
-
 
     @Operation(
             summary = "Добавить карту",

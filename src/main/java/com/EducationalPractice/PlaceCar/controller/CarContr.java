@@ -19,7 +19,7 @@ public class CarContr {
     private final CarServ service;
     @Operation(
             summary = "Вывод всех машин",
-            description = "Позволяет вывести всех машины, что есть в базе"
+            description = "Позволяет вывести все машины, что есть в базе"
     )
     @GetMapping("/all")
     public ResponseEntity<ListResp<Car>> getAll() {
@@ -68,7 +68,7 @@ public class CarContr {
         try {
             service.delete(id);
             return ResponseEntity.ok(
-                    new BaseResp(true, "машина удалена"));
+                    new BaseResp(true, "Машина удалена"));
         } catch (RuntimeException e) {
             return ResponseEntity.ok(
                     new BaseResp(false, e.getMessage()));

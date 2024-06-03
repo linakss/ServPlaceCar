@@ -15,9 +15,7 @@ import java.util.Optional;
 @Validated
 public class CardServ {
     private final CardRepo repo;
-    public List<Card> getTitle(String title){ //Поменять
-        return null; //repo.findByTitle(title);
-    }
+
     public List<Card> findAll(){
         return repo.findAll();
     }

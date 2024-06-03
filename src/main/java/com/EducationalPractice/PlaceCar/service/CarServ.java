@@ -17,8 +17,8 @@ import java.util.Optional;
 @Validated
 public class CarServ {
     private final CarRepo repo;
-    public List<Car> getTitle(String title){ //Поменять
-        return null; //repo.findByTitle(title);
+    public List<Car> getGosNumber(String gosNumber){ //Поменять
+        return repo.findByGosNumberCar(gosNumber);
     }
     public List<Car> findAll(){
         return repo.findAll();
