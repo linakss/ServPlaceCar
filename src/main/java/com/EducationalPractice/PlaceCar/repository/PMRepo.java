@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface PMRepo extends JpaRepository<PM, Long>  {
-    List<PM> findByRyadPMAndNumberPM(String title);
+    List<PM> findByRyadPMAndNumberPM(String ryadPM, int numberPM);
 
 }
