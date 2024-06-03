@@ -2,6 +2,7 @@ package com.EducationalPractice.PlaceCar.service;
 
 
 import com.EducationalPractice.PlaceCar.entity.Employee;
+import com.EducationalPractice.PlaceCar.entity.User;
 import com.EducationalPractice.PlaceCar.repository.EmployeeRepo;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -33,6 +34,9 @@ public class EmployeeServ {
     }
     public void delete(Long id){
         repo.deleteById(id);
+    }
+    public Optional<Employee> checkEmployee(String login, String password) {
+        return repo.findByLoginAndPassword(login, password);
     }
     
 }

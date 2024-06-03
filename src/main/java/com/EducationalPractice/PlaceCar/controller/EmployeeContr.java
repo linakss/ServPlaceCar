@@ -75,4 +75,16 @@ public class EmployeeContr {
 
         }
     }
+
+    @GetMapping
+    public ResponseEntity<BaseResp> check(@RequestParam String login, @RequestParam String password) {
+        try {
+            return ResponseEntity.ok(
+                    new DataResp<Employee>(true, "Найден следующий пользователь ",
+                            service.checkEmployee(login,password).orElseThrow()));
+        } catch (RuntimeException e) {
+            return ResponseEntity.ok(
+                    new BaseResp(false, e.getMessage()));
+        }
+    }
 }
