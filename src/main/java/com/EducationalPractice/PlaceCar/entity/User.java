@@ -27,13 +27,13 @@ public class User {
     @NotBlank()
     @Pattern(regexp = "[0-9]{2}-[0-9]{2}-[0-9]{4}\\s[0-9]{2}:[0-9]{2}")
     @Schema(description = "Время въезда ", example = "dd-MM-yyyy HH:mm")
-    private LocalDateTime timeEntry; //Время въезда
+    private String timeEntry; //Время въезда
     @NotBlank()
     @Pattern(regexp = "[0-9]{2}-[0-9]{2}-[0-9]{4}\\s[0-9]{2}:[0-9]{2}")
     @Schema(description = "Время выезда ", example = "dd-MM-yyyy HH:mm")
-    private LocalDateTime timeDeparture; //Время выезда
+    private String timeDeparture; //Время выезда
 
-    @NotNull
+
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;

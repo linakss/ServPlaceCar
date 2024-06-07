@@ -39,9 +39,9 @@ public class Employee {
     @Schema(description = "Роль сотрудника ", example = "Администратор")
     private String role; //роль сотрудника системы
     @NotBlank()
-    @Pattern(regexp = "8\\s([0-9]{3})\\s[0-9]{3}-[0-9]{2}-[0-9]{2}")
+    //@Pattern(regexp = "8\\s([0-9]{3})\\s[0-9]{3}-[0-9]{2}-[0-9]{2}")
     @Schema(description = "Номер телефона сотрудника ", example = "8 (928) 456-21-30")
-    private int numberPhone; // номер телефона сотрудника
+    private String numberPhone; // номер телефона сотрудника
 
     @NotBlank()
     @Schema(description = "Логин сотрудника ", example = "admink1o")

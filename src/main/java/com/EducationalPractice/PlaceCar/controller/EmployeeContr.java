@@ -76,7 +76,7 @@ public class EmployeeContr {
         }
     }
 
-    @GetMapping
+    @GetMapping("/check")
     public ResponseEntity<BaseResp> check(@RequestParam String login, @RequestParam String password) {
         try {
             return ResponseEntity.ok(
