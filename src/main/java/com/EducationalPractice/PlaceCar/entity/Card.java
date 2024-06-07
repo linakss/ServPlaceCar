@@ -25,7 +25,7 @@ public class Card {
     @NotBlank()
     @Pattern(regexp = "[0-9]{4}\\s[0-9]{4}\\s[0-9]{4}\\s[0-9]{4}")
     @Schema(description = "Номер банковской карты ", example = "1234 5678 9101 2345")
-    private int numberCard; // номер банковской карты
+    private String numberCard; // номер банковской карты
     @NotBlank()
     @Pattern(regexp = "[0-9]{2}/[0-9]{2}")
     @Schema(description = "Срок действия карты ", example = "01/25")
@@ -41,7 +41,7 @@ public class Card {
     @NotBlank()
     @Pattern(regexp = "[0-9]{3}")
     @Schema(description = "CVV-код ", example = "123")
-    private int cvvCard; // cvv-код на оборотной стороне карты
+    private String cvvCard; // cvv-код на оборотной стороне карты
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
