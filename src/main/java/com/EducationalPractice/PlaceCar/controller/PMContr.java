@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class PMContr {
     private final PMServ service;
+
+
     @Operation(
             summary = "Вывод всех парковочных мест",
             description = "Позволяет вывести все парковочных места, что есть в базе"
@@ -75,4 +77,17 @@ public class PMContr {
 
         }
     }
+
+    @GetMapping// Работает
+    public ResponseEntity<BaseResp> check(@RequestParam String ryadPM, @RequestParam String numberPM ) {
+        try {
+            return ResponseEntity.ok(
+                    new DataResp<PM>(true, "Найдено следующее , парковачное место: ",
+                            service.getTitle(ryadPM,numberPM)   .orElseThrow()));
+        } catch (RuntimeException e) {
+            return ResponseEntity.ok(
+                    new BaseResp(false, e.getMessage()));
+        }
+    }
+
 }

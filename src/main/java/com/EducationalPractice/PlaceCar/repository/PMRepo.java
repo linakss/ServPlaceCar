@@ -5,8 +5,9 @@ import com.EducationalPractice.PlaceCar.entity.PM;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface PMRepo extends JpaRepository<PM, Long>  {
-    List<PM> findByRyadPMAndNumberPM(String ryadPM, int numberPM);
+    Optional<PM> findByRyadPMAndNumberPM(String ryadPM, String numberPM);
 
 }

@@ -15,7 +15,7 @@ import java.util.Optional;
 @Validated
 public class PMServ {
     private final PMRepo repo;
-    public List<PM> getTitle(String ryadPM, int numberPM){ //Поменять
+    public Optional<PM> getTitle(String ryadPM, String numberPM){ //Поменять
         return repo.findByRyadPMAndNumberPM(ryadPM, numberPM);
     }
 
