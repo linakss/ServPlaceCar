@@ -19,6 +19,7 @@ public class PMContr {
     private final PMServ service;
 
 
+
     @Operation(
             summary = "Вывод всех парковочных мест",
             description = "Позволяет вывести все парковочных места, что есть в базе"

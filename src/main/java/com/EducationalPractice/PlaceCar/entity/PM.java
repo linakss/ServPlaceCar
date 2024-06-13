@@ -19,6 +19,7 @@ import java.util.List;
 @Table(name = "pms")
 @Schema(description = "Инфа о парковочном месте")
 public class PM {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPM; //индивид. номер парковочного места в базе

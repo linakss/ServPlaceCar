@@ -19,6 +19,7 @@ import java.util.List;
 @Table(name = "employees")
 @Schema(description = "Инфа о сотруднике")
 public class Employee {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmployee; //индивид. номер сотрудника системы в базе

@@ -57,6 +57,7 @@ public class UserContr {
         }
     }
 
+
     @Operation(
             summary = "Удалить пользователя",
             description = "Позволяет удалить пользователя из базы"

@@ -34,6 +34,7 @@ public class Car {
     @Schema(description = "Модель машины ", example = "Audi")
     private String modelCar; //модель машины
     @NotBlank()
+
     @Schema(description = "Марка машины ", example = "R8")
     private String markCar; //марка машины
     @NotBlank()

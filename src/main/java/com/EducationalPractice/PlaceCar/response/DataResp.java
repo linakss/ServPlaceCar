@@ -16,4 +16,5 @@ public class DataResp<T> extends BaseResp {
         super(success,message);
         this.data=data;
     }
+
 }

@@ -10,3 +10,4 @@ public interface EmployeeRepo extends JpaRepository<Employee, Long> {
     Optional<Employee> findByLoginAndPassword(String login, String password);
 
 }
+

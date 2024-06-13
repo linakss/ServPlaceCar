@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 public class CardContr {
     private final CardServ service;
     @Operation(
+
             summary = "Вывод всех карт",
             description = "Позволяет вывести все карты, что есть в базе"
     )
