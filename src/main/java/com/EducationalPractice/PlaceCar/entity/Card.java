@@ -49,5 +49,7 @@ public class Card {
     @OneToMany(mappedBy = "card", cascade = CascadeType.ALL)
     private List<PM> pmList;
 
-
+    @JsonIgnore
+    @OneToMany(mappedBy = "card", cascade = CascadeType.ALL)
+    private List<AboutHuman> aboutHumanList;
 }

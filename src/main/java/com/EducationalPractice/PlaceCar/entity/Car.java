@@ -41,8 +41,12 @@ public class Car {
     @Pattern(regexp = "[А-Я][0-9]{3}[А-Я]{2}")
     @Schema(description = "Гос.номер машины ", example = "Т161ТС")
     private String gosNumberCar; //государственнный номер машины
-    @NotNull
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
+    private List<AboutHuman> aboutHumanList;
 }

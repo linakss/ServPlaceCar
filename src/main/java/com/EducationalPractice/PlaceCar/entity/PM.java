@@ -42,4 +42,8 @@ public class PM {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "pm", cascade = CascadeType.ALL)
+    private List<AboutHuman> aboutHumanList;
 }

@@ -32,8 +32,12 @@ public class User {
     @Pattern(regexp = "[0-9]{2}-[0-9]{2}-[0-9]{4}\\s[0-9]{2}:[0-9]{2}")
     @Schema(description = "Время выезда ", example = "dd-MM-yyyy HH:mm")
     private String timeDeparture; //Время выезда
-
-
+    @NotBlank()
+    @Schema(description = "Последнее место работы", example = "г.Москва, СберСити")
+    private String lastPlaceOfWork; //последнее место работы юзера
+    @NotBlank()
+    @Schema(description = "Постоянное место жительства", example = "г.Москва, СберСити")
+    private String permanentResidence; //постоянное место жительства юзера
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
@@ -47,6 +51,10 @@ public class User {
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<PM> pmList;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<AboutHuman> aboutHumanList;
     @Override
     public String toString() {
         return "";
