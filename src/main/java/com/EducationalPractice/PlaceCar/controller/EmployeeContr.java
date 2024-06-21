@@ -26,9 +26,6 @@ public class EmployeeContr {
         return ResponseEntity.ok(
                 new ListResp<Employee>(true, "Список сотрудников:", service.findAll()));
     }
-
-
-
     @Operation(
             summary = "Добавить сотрудника",
             description = "Позволяет добавлять сотрудника в базу"
@@ -56,7 +53,6 @@ public class EmployeeContr {
         }catch (RuntimeException e) {
             return ResponseEntity.ok(
                     new BaseResp(false, e.getMessage()));
-
         }
     }
 
@@ -73,10 +69,8 @@ public class EmployeeContr {
         } catch (RuntimeException e) {
             return ResponseEntity.ok(
                     new BaseResp(false, e.getMessage()));
-
         }
     }
-
     @GetMapping("/check")
     public ResponseEntity<BaseResp> check(@RequestParam String login, @RequestParam String password) {
         try {

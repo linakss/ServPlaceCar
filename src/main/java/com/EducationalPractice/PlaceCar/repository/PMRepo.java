@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PMRepo extends JpaRepository<PM, Long>  {
     Optional<PM> findByRyadPMAndNumberPM(String ryadPM, String numberPM);
-
+    void deleteByRyadPMAndNumberPMAndIdPM(String ryadPM, String numberPM,Long idPM);
 }
 

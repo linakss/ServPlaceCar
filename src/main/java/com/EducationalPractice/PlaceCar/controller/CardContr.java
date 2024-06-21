@@ -43,6 +43,17 @@ public class CardContr {
                     new BaseResp(false, e.getMessage()));
         }
     }
+    @GetMapping// Работает
+    public ResponseEntity<BaseResp> by_rec(@RequestParam Long id) {
+        try {
+            return ResponseEntity.ok(
+                    new DataResp<Card>(true, "Найден следующий ,бедолага",
+                            service.findById(id).orElseThrow()));
+        } catch (RuntimeException e) {
+            return ResponseEntity.ok(
+                    new BaseResp(false, e.getMessage()));
+        }
+    }
     @Operation(
             summary = "Изменить карту",
             description = "Позволяет редактировать и изменять карту"
@@ -59,7 +70,6 @@ public class CardContr {
 
         }
     }
-
     @Operation(
             summary = "Удалить карту",
             description = "Позволяет удалить карту из базы"
@@ -73,7 +83,6 @@ public class CardContr {
         } catch (RuntimeException e) {
             return ResponseEntity.ok(
                     new BaseResp(false, e.getMessage()));
-
         }
     }
 }

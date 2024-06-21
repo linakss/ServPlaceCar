@@ -12,8 +12,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
-
-
 @Entity
 @Getter
 @Setter
@@ -25,19 +23,17 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCar; //индивид. номер машины в базе
-    @NotBlank()
+    //@NotBlank()
     @Pattern(regexp = "[А-Я][а-я]{1,20}")
     @Schema(description = "Цвет машины ", example = "Красный")
     private String colorCar; //цвет машины
-    @NotBlank()
-    @Pattern(regexp = "[A-Z][a-z]{1,25}")
+    //@NotBlank()
     @Schema(description = "Модель машины ", example = "Audi")
     private String modelCar; //модель машины
-    @NotBlank()
-
+    //@NotBlank()
     @Schema(description = "Марка машины ", example = "R8")
     private String markCar; //марка машины
-    @NotBlank()
+    //@NotBlank()
     @Pattern(regexp = "[А-Я][0-9]{3}[А-Я]{2}")
     @Schema(description = "Гос.номер машины ", example = "Т161ТС")
     private String gosNumberCar; //государственнный номер машины
@@ -46,7 +42,5 @@ public class Car {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
-    private List<AboutHuman> aboutHumanList;
+
 }

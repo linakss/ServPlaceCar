@@ -17,9 +17,7 @@ import java.util.Optional;
 @AllArgsConstructor
 @Validated
 public class EmployeeServ {
-
     private final EmployeeRepo repo;
-
     public List<Employee> findAll(){
         return repo.findAll();
     }

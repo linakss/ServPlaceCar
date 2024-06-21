@@ -55,11 +55,8 @@ public class CarContr {
         }catch (RuntimeException e) {
             return ResponseEntity.ok(
                     new BaseResp(false, e.getMessage()));
-
         }
-
     }
-
     @Operation(
             summary = "Удалить  машину",
             description = "Позволяет удалить машину из базы"
@@ -73,7 +70,6 @@ public class CarContr {
         } catch (RuntimeException e) {
             return ResponseEntity.ok(
                     new BaseResp(false, e.getMessage()));
-
         }
     }
 }

@@ -25,7 +25,6 @@ public class UserContr {
         return ResponseEntity.ok(
                 new ListResp<User>(true, "Список пользователей:", service.findAll()));
     }
-
     @Operation(
             summary = "Добавить пользователя",
             description = "Позволяет добавлять пользователя в базу"
@@ -53,11 +52,8 @@ public class UserContr {
         }catch (RuntimeException e) {
             return ResponseEntity.ok(
                     new BaseResp(false, e.getMessage()));
-
         }
     }
-
-
     @Operation(
             summary = "Удалить пользователя",
             description = "Позволяет удалить пользователя из базы"
@@ -71,8 +67,18 @@ public class UserContr {
         } catch (RuntimeException e) {
             return ResponseEntity.ok(
                     new BaseResp(false, e.getMessage()));
-
         }
     }
 
+    @GetMapping
+    public ResponseEntity<BaseResp> by_rec(@RequestParam Long id) {
+        try {
+            return ResponseEntity.ok(
+                    new DataResp<User>(true, "Найден следующий ,бедолага",
+                            service.findById(id).orElseThrow()));
+        } catch (RuntimeException e) {
+            return ResponseEntity.ok(
+                    new BaseResp(false, e.getMessage()));
+        }
+    }
 }

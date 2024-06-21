@@ -19,23 +19,22 @@ import java.util.List;
 @Table(name = "pms")
 @Schema(description = "Инфа о парковочном месте")
 public class PM {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPM; //индивид. номер парковочного места в базе
-    //@NotBlank()
-    //@Pattern(regexp = "[A-Z]")
+//    @NotBlank()
+//    @Pattern(regexp = "[A-Z]")
     @Schema(description = "Ряд ПМ", example = "B")
     private String ryadPM; //ряд парковочного места от A до Z
     //@NotBlank()
     //@Pattern(regexp = "^\\d+$")
     @Schema(description = "Номер парковочного места", example = "10")
     private String numberPM; // номер парковочного места от 1 до 10
-    //@NotBlank()
+//    @NotBlank()
 //    @Pattern(regexp = "[А-Я][а-я]{1,20}")
     @Schema(description = "Статус парковочного места", example = "Забронировано")
     private String statusPM; // статус парковочного места (свободно, забронировано, занято)
-
+    private String pricePM; // цена парковочного места
     @ManyToOne
     @JoinColumn(name = "card_id")
     private Card card;
@@ -43,7 +42,4 @@ public class PM {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "pm", cascade = CascadeType.ALL)
-    private List<AboutHuman> aboutHumanList;
 }

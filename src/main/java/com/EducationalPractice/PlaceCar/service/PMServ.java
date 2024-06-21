@@ -18,8 +18,6 @@ public class PMServ {
     public Optional<PM> getTitle(String ryadPM, String numberPM){ //Поменять
         return repo.findByRyadPMAndNumberPM(ryadPM, numberPM);
     }
-
-
     public List<PM> findAll(){
         return repo.findAll();
     }
@@ -34,5 +32,8 @@ public class PMServ {
     }
     public void delete(Long id){
         repo.deleteById(id);
+    }
+    public void deleteByRyadAndNumber(String ryadPM, String numberPM,Long idPM) {
+        repo.deleteByRyadPMAndNumberPMAndIdPM(ryadPM,numberPM, idPM);
     }
 }

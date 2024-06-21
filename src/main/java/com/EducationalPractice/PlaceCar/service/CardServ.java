@@ -15,7 +15,6 @@ import java.util.Optional;
 @Validated
 public class CardServ {
     private final CardRepo repo;
-
     public List<Card> findAll(){
         return repo.findAll();
     }

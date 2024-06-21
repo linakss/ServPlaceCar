@@ -17,9 +17,6 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class PMContr {
     private final PMServ service;
-
-
-
     @Operation(
             summary = "Вывод всех парковочных мест",
             description = "Позволяет вывести все парковочных места, что есть в базе"
@@ -29,8 +26,6 @@ public class PMContr {
         return ResponseEntity.ok(
                 new ListResp<PM>(true, "Список парковочных мест:", service.findAll()));
     }
-
-
     @Operation(
             summary = "Добавить парковочное место",
             description = "Позволяет добавлять парковочное место в базу"
@@ -58,10 +53,21 @@ public class PMContr {
         }catch (RuntimeException e) {
             return ResponseEntity.ok(
                     new BaseResp(false, e.getMessage()));
-
         }
     }
 
+
+//    @DeleteMapping("del/{ryadPM}/{numberPM}/{idPM}")
+//    public ResponseEntity<BaseResp> delete(@PathVariable String ryadPM, @PathVariable String numberPM,@PathVariable Long idPM ) {
+//        try {
+//            service.deleteByRyadAndNumber(ryadPM, numberPM,idPM);
+//            return ResponseEntity.ok(
+//                    new BaseResp(true, "Парковочное место удалено"));
+//        } catch (RuntimeException e) {
+//            return ResponseEntity.ok(
+//                    new BaseResp(false, e.getMessage()));
+//        }
+//    }
     @Operation(
             summary = "Удалить парковочное место",
             description = "Позволяет удалить парковочное место из базы"
@@ -78,8 +84,7 @@ public class PMContr {
 
         }
     }
-
-    @GetMapping// Работает
+    @GetMapping
     public ResponseEntity<BaseResp> check(@RequestParam String ryadPM, @RequestParam String numberPM ) {
         try {
             return ResponseEntity.ok(
@@ -90,5 +95,4 @@ public class PMContr {
                     new BaseResp(false, e.getMessage()));
         }
     }
-
 }
